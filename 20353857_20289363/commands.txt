@@ -1,0 +1,96 @@
+# ELEC 475 Lab 2 — completed experiment commands
+# Run from this folder in PowerShell with the project virtual environment installed.
+# These are reproducibility instructions; packaging does not run training.
+# The three included checkpoints use the required submission names.
+# Additional checkpoint/plot paths below are outputs created when reproducing other runs.
+# The model checkpoints store best validation-accuracy weights; report tables use final epochs.
+# CUDA_VISIBLE_DEVICES=-1 reproduces CPU device selection; removing it permits GPU execution.
+
+# Source: outputs/cifar10_lenet_seed42_20261022_094725_422138.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model lenet --dataset cifar10 --epochs 5 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/lenet_baseline.pth --plot-file plots/loss_lenet.png 2>&1 | Tee-Object -FilePath outputs/cifar10_lenet_seed42_20261022_094725_422138.txt
+
+# Source: outputs/cifar10_lenet_modern_seed42_20261022_095044_356312.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model lenet_modern --dataset cifar10 --epochs 5 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/lenet_modern.pth --plot-file plots/loss_lenet_modern.png 2>&1 | Tee-Object -FilePath outputs/cifar10_lenet_modern_seed42_20261022_095044_356312.txt
+
+# Source: outputs/alexnet_none_seed42.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm none --dataset cifar10 --epochs 10 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/alexnet_none.pth --plot-file plots/loss_alexnet_none.png 2>&1 | Tee-Object -FilePath outputs/alexnet_none_seed42.txt
+
+# Source: outputs/alexnet_lrn_seed42.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm lrn --dataset cifar10 --epochs 10 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/alexnet_lrn.pth --plot-file plots/loss_alexnet_lrn.png 2>&1 | Tee-Object -FilePath outputs/alexnet_lrn_seed42.txt
+
+# Source: outputs/alexnet_bn_seed42.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm bn --dataset cifar10 --epochs 10 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/alexnet_bn.pth --plot-file plots/loss_alexnet_bn.png 2>&1 | Tee-Object -FilePath outputs/alexnet_bn_seed42.txt
+
+# Source: outputs/alexnet_bn_aug_gpu_seed42.txt | Recorded device: cuda (NVIDIA GeForce RTX 3070)
+Remove-Item Env:CUDA_VISIBLE_DEVICES -ErrorAction SilentlyContinue
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm bn --dataset cifar10 --epochs 15 --batch-size 128 --lr 0.001 --seed 42 --save-model checkpoints/alexnet_bn_aug_gpu_seed42.pth --plot-file plots/loss_alexnet_bn_aug_gpu_seed42.png 2>&1 | Tee-Object -FilePath outputs/alexnet_bn_aug_gpu_seed42.txt
+
+# Source: outputs/zoo_alexnet_cifar10_seed42.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model zoo_alexnet --dataset cifar10 --epochs 15 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/zoo_alexnet_cifar10_seed42.pth --plot-file plots/loss_zoo_alexnet_cifar10_seed42.png 2>&1 | Tee-Object -FilePath outputs/zoo_alexnet_cifar10_seed42.txt
+
+# Source: outputs/tiny_imagenet_lenet_seed42_20261022_095430_088798.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model lenet --dataset tiny_imagenet --epochs 5 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/tiny_imagenet_lenet_seed42_20261022_095430_088798.pth --plot-file plots/loss_tiny_imagenet_lenet_seed42_20261022_095430_088798.png 2>&1 | Tee-Object -FilePath outputs/tiny_imagenet_lenet_seed42_20261022_095430_088798.txt
+
+# Source: outputs/tiny_imagenet_lenet_modern_seed42_20261022_100027_414947.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model lenet_modern --dataset tiny_imagenet --epochs 5 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/tiny_imagenet_lenet_modern_seed42_20261022_100027_414947.pth --plot-file plots/loss_tiny_imagenet_lenet_modern_seed42_20261022_100027_414947.png 2>&1 | Tee-Object -FilePath outputs/tiny_imagenet_lenet_modern_seed42_20261022_100027_414947.txt
+
+# Source: outputs/tiny_imagenet_alexnet_none_seed42_20261022_100624_532727.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm none --dataset tiny_imagenet --epochs 10 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/tiny_imagenet_alexnet_none_seed42_20261022_100624_532727.pth --plot-file plots/loss_tiny_imagenet_alexnet_none_seed42_20261022_100624_532727.png 2>&1 | Tee-Object -FilePath outputs/tiny_imagenet_alexnet_none_seed42_20261022_100624_532727.txt
+
+# Source: outputs/tiny_imagenet_alexnet_lrn_seed42_20261022_113016_478735.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm lrn --dataset tiny_imagenet --epochs 10 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/tiny_imagenet_alexnet_lrn_seed42_20261022_113016_478735.pth --plot-file plots/loss_tiny_imagenet_alexnet_lrn_seed42_20261022_113016_478735.png 2>&1 | Tee-Object -FilePath outputs/tiny_imagenet_alexnet_lrn_seed42_20261022_113016_478735.txt
+
+# Source: outputs/tiny_imagenet_alexnet_bn_seed42_retry.txt | Recorded device: cuda (NVIDIA GeForce RTX 3070)
+Remove-Item Env:CUDA_VISIBLE_DEVICES -ErrorAction SilentlyContinue
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm bn --dataset tiny_imagenet --epochs 10 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/tiny_imagenet_alexnet_bn_seed42_retry.pth --plot-file plots/loss_tiny_imagenet_alexnet_bn_seed42_retry.png 2>&1 | Tee-Object -FilePath outputs/tiny_imagenet_alexnet_bn_seed42_retry.txt
+
+# Source: outputs/alexnet_tiny_imagenet_seed42.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm bn --dataset tiny_imagenet --epochs 10 --batch-size 128 --lr 0.001 --seed 42 --save-model checkpoints/alexnet_tiny_imagenet.pth --plot-file plots/loss_tiny_imagenet.png 2>&1 | Tee-Object -FilePath outputs/alexnet_tiny_imagenet_seed42.txt
+
+# Source: outputs/zoo_alexnet_tiny_imagenet_seed42.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model zoo_alexnet --dataset tiny_imagenet --epochs 15 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/zoo_alexnet_tiny_imagenet_seed42.pth --plot-file plots/loss_zoo_alexnet_tiny_imagenet_seed42.png 2>&1 | Tee-Object -FilePath outputs/zoo_alexnet_tiny_imagenet_seed42.txt
+
+# Source: outputs/alexnet_no_aug_seed42_.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm bn --dataset cifar10 --epochs 15 --batch-size 128 --lr 0.001 --seed 42 --no-augment --save-model checkpoints/alexnet_no_aug_.pth --plot-file plots/loss_no_aug_.png 2>&1 | Tee-Object -FilePath outputs/alexnet_no_aug_seed42_.txt
+
+# Source: outputs/alexnet_bn_aug_lr0003_gpu_seed42.txt | Recorded device: cuda (NVIDIA GeForce RTX 3070)
+Remove-Item Env:CUDA_VISIBLE_DEVICES -ErrorAction SilentlyContinue
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm bn --dataset cifar10 --epochs 15 --batch-size 128 --lr 0.0003 --seed 42 --save-model checkpoints/alexnet_bn_aug_lr0003_gpu_seed42.pth --plot-file plots/loss_alexnet_bn_aug_lr0003_gpu_seed42.png 2>&1 | Tee-Object -FilePath outputs/alexnet_bn_aug_lr0003_gpu_seed42.txt
+
+# Source: outputs/alexnet_bn_aug_gpu_seed123.txt | Recorded device: cuda (NVIDIA GeForce RTX 3070)
+Remove-Item Env:CUDA_VISIBLE_DEVICES -ErrorAction SilentlyContinue
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm bn --dataset cifar10 --epochs 15 --batch-size 128 --lr 0.001 --seed 123 --save-model checkpoints/alexnet_bn_aug_gpu_seed123.pth --plot-file plots/loss_alexnet_bn_aug_gpu_seed123.png 2>&1 | Tee-Object -FilePath outputs/alexnet_bn_aug_gpu_seed123.txt
+
+# Source: outputs/alexnet_bn_aug_lr0003_gpu_seed123.txt | Recorded device: cuda (NVIDIA GeForce RTX 3070)
+Remove-Item Env:CUDA_VISIBLE_DEVICES -ErrorAction SilentlyContinue
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm bn --dataset cifar10 --epochs 15 --batch-size 128 --lr 0.0003 --seed 123 --save-model checkpoints/alexnet_bn_aug_lr0003_gpu_seed123.pth --plot-file plots/loss_alexnet_bn_aug_lr0003_gpu_seed123.png 2>&1 | Tee-Object -FilePath outputs/alexnet_bn_aug_lr0003_gpu_seed123.txt
+
+# Source: outputs/alexnet_with_aug_seed42_.txt | Recorded device: cpu (CPU)
+$env:CUDA_VISIBLE_DEVICES = "-1"
+.\.venv\Scripts\python.exe -u -X utf8 train.py --model alexnet --norm bn --dataset cifar10 --epochs 15 --batch-size 128 --lr 0.001 --seed 42 --save-model checkpoints/alexnet_with_aug_.pth --plot-file plots/loss_with_aug_.png 2>&1 | Tee-Object -FilePath outputs/alexnet_with_aug_seed42_.txt
+
+Remove-Item Env:CUDA_VISIBLE_DEVICES -ErrorAction SilentlyContinue
+
+# Profiling and report evidence
+.\.venv\Scripts\python.exe -X utf8 -m models.alexnet
+.\.venv\Scripts\python.exe -X utf8 compare_models.py --dataset cifar10 --device cpu 2>&1 | Tee-Object -FilePath outputs/benchmark_cifar10.txt
+.\.venv\Scripts\python.exe -X utf8 compare_models.py --dataset tiny_imagenet --device cpu 2>&1 | Tee-Object -FilePath outputs/benchmark_tiny_imagenet.txt
+.\.venv\Scripts\python.exe -X utf8 compare_models.py --dataset cifar10 --device cuda 2>&1 | Tee-Object -FilePath outputs/benchmark_cifar10_gpu.txt
+.\.venv\Scripts\python.exe -X utf8 -m utils.visualization --plot-ablation
+.\.venv\Scripts\python.exe -u -X utf8 demo_transforms.py 2>&1 | Tee-Object -FilePath outputs/demo_transforms.txt
+
+# Reproduce the archived EDA figures (datasets download into data/; exclude data/ from the ZIP).
+.\.venv\Scripts\python.exe -X utf8 -m utils.eda --dataset both
