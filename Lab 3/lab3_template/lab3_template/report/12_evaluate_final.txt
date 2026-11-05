@@ -1,0 +1,61 @@
+========================================================================
+ELEC 475: Lab 3 Localization Evaluation
+Predictions   : predictions
+========================================================================
+
+Model                                    Min    Mean  Median     Max     Std
+Baseline (mean)                          0.6    79.7    70.0   848.2    56.1
+SnoutNet                                 0.9    57.0    44.3  1084.5    57.4
+SnoutNet-A                               1.8    44.8    36.9   690.2    39.6
+SnoutNet-V                               0.4    12.9     8.7   175.4    17.3
+Ensemble (mean)                          0.7    31.2    23.5   597.2    33.7
+Ensemble (median)                        0.4    29.4    20.2   676.3    38.0
+SnoutNet + corr.                         1.4    43.8    19.8  1064.1    61.2
+SnoutNet + corr. (aug)                   0.3    43.4    19.2  1062.3    61.3
+SnoutNet + mod. corr.                    0.4    46.1    24.8  1078.7    61.2
+SnoutNet + mod. corr. (aug)              0.1    44.5    21.7  1075.0    61.3
+SnoutNet-V + corr.                       0.2    12.1     7.8   201.8    17.2
+SnoutNet-V + corr. (aug)                 0.4    11.9     7.5   202.0    17.2
+SnoutNet-V + mod. corr.                  0.2    11.1     6.5   198.5    17.1
+SnoutNet-V + mod. corr. (aug)            0.4    11.0     6.5   187.1    17.0
+Ensemble (mean) + corr.                  0.3    20.4    10.4   599.7    34.4
+Ensemble (mean) + corr. (aug)            0.5    20.4     9.5   596.4    34.7
+Ensemble (mean) + mod. corr.             0.5    21.7    11.0   597.4    34.6
+Ensemble (mean) + mod. corr. (aug)       0.1    20.5     9.9   595.3    34.5
+
+Model                                      Params   ms/img
+Baseline (mean)                                 0      0.0
+SnoutNet                                5,617,794      0.7
+SnoutNet-A                             57,012,034      1.5
+SnoutNet-V                            134,268,738      5.0
+Ensemble (mean)                       196,898,566      7.1
+Ensemble (median)                     196,898,566      7.1
+SnoutNet + corr.                        6,384,388      1.5
+SnoutNet + corr. (aug)                  6,384,388      1.5
+SnoutNet + mod. corr.                   6,726,436      2.0
+SnoutNet + mod. corr. (aug)             6,726,436      2.1
+SnoutNet-V + corr.                    135,035,332      5.9
+SnoutNet-V + corr. (aug)              135,035,332      5.8
+SnoutNet-V + mod. corr.               135,377,380      6.3
+SnoutNet-V + mod. corr. (aug)         135,377,380      6.3
+Ensemble (mean) + corr.               197,665,160      8.0
+Ensemble (mean) + corr. (aug)         197,665,160      8.0
+Ensemble (mean) + mod. corr.          198,007,208      9.6
+Ensemble (mean) + mod. corr. (aug)    198,007,208      9.3
+
+CED plot saved to: plots\ced.png
+Best/worst figure saved to: plots\best_worst_snoutnet.png
+Best/worst figure saved to: plots\best_worst_alexnet.png
+Best/worst figure saved to: plots\best_worst_vgg16.png
+Best/worst figure saved to: plots\best_worst_snoutnet_correction_noaug.png
+Best/worst figure saved to: plots\best_worst_snoutnet_correction_aug.png
+Best/worst figure saved to: plots\best_worst_snoutnet_correction_mod_noaug.png
+Best/worst figure saved to: plots\best_worst_snoutnet_correction_mod_aug.png
+Best/worst figure saved to: plots\best_worst_vgg16_correction_noaug.png
+Best/worst figure saved to: plots\best_worst_vgg16_correction_aug.png
+Best/worst figure saved to: plots\best_worst_vgg16_correction_mod_noaug.png
+Best/worst figure saved to: plots\best_worst_vgg16_correction_mod_aug.png
+Best/worst figure saved to: plots\best_worst_ensemble_mean_correction_noaug.png
+Best/worst figure saved to: plots\best_worst_ensemble_mean_correction_aug.png
+Best/worst figure saved to: plots\best_worst_ensemble_mean_correction_mod_noaug.png
+Best/worst figure saved to: plots\best_worst_ensemble_mean_correction_mod_aug.png

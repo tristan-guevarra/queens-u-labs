@@ -1,0 +1,15 @@
+========================================================================
+ELEC 475: Lab 3 Prediction Correction
+Loading checkpoint : checkpoints/correction_noaug.pth
+Device             : cuda
+========================================================================
+
+[snoutnet] Correction time: 0.8 ms/image (batch size 1)
+[snoutnet] Saved predictions\snoutnet_correction_noaug.pt
+
+[vgg16] Correction time: 0.9 ms/image (batch size 1)
+[vgg16] Saved predictions\vgg16_correction_noaug.pt
+
+[ensemble_mean] Correction time: 0.8 ms/image (batch size 1)
+[ensemble_mean] Saved predictions\ensemble_mean_correction_noaug.pt
+
